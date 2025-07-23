@@ -1,0 +1,17 @@
+@startuml
+package "Greg Go!!!!! App" {
+  [React Native App] --> [REST API (Spring Boot)]
+}
+
+package "Backend (Spring Boot)" {
+  [REST API (Spring Boot)] --> [User Service]
+  [REST API (Spring Boot)] --> [Greg Service]
+  [REST API (Spring Boot)] --> [Location Service]
+  
+  [User Service] --> [Database]
+  [Greg Service] --> [Database]
+  [Location Service] --> [Database]
+}
+
+database "PostgreSQL (or similar)" as Database
+@enduml

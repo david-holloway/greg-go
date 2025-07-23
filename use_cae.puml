@@ -1,0 +1,19 @@
+@startuml
+actor Greg
+actor "Non-Greg" as NotGreg
+
+usecase "Enter Name & Upload Photo" as UC1
+usecase "Submit Profile (Greg)" as UC2
+usecase "View List of Gregs" as UC3
+usecase "Select a Greg" as UC4
+usecase "View Greg Location & Distance" as UC5
+usecase "upload photo of Greg" as UC6
+
+Greg --> UC1
+Greg --> UC2
+
+NotGreg --> UC6
+NotGreg --> UC3
+NotGreg --> UC4
+NotGreg --> UC5
+@enduml

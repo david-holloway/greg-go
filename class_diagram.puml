@@ -1,0 +1,28 @@
+@startuml
+
+class User {
+  +UUID id
+  +String name
+  +String photoUrl
+  +Location location
+}
+
+class Greg {
+  +String description
+}
+
+class NonGreg {
+  +Greg selectedGreg
+}
+
+class Location {
+  +double latitude
+  +double longitude
+}
+
+User <|-- Greg
+User <|-- NonGreg
+User --> Location
+NonGreg --> Greg
+
+@enduml
