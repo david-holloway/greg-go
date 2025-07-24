@@ -20,4 +20,4 @@ Greg Go is an asymmetric, app-based horror game. Users are assigned one of two r
 1. Download and install the app.
 2. Open the app and enter your name.
 3. Upload a photo of yourself.
-4. Experience the game based on your assigned role.
+4. Find and upload a photo of Greg
