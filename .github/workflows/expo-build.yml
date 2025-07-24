@@ -12,6 +12,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
     steps:
       - name: Checkout code
@@ -25,5 +27,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build project
-        run: npx expo build:web
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Build App (Development profile)
+        run: eas build --platform android --non-interactive --profile production
