@@ -16,7 +16,8 @@
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "Allow Greg Go to access your camera to take photos.",
-        "NSPhotoLibraryUsageDescription": "Allow Greg Go to access your photo library to select images."
+        "NSPhotoLibraryUsageDescription": "Allow Greg Go to access your photo library to select images.",
+        "NSLocationWhenInUseUsageDescription": "This app uses your location to show your position on the map."
       }
     },
     "android": {
@@ -27,7 +28,8 @@
       "edgeToEdgeEnabled": true,
       "permissions": [
         "CAMERA",
-        "READ_EXTERNAL_STORAGE"
+        "READ_EXTERNAL_STORAGE",
+        "ACCESS_FINE_LOCATION"
       ]
     },
     "web": {
