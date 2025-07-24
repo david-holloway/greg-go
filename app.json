@@ -16,14 +16,22 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "co.logicartisan.greggo",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ca80b997-8e4a-4b5b-b188-f7d85aa57047"
+      }
+    },
+    "owner": "athensholloway"
   }
 }
