@@ -3,11 +3,11 @@ name: Build Expo Project
 on:
   push:
     branches:
-      - master
+      - main
       - 'feature/*'
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:
