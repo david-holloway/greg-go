@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-      ARTIFACT_PATH: "./dist/artifacts"
 
     steps:
       - name: Checkout code
@@ -38,6 +37,6 @@ jobs:
     needs: build
     uses: ./.github/workflows/archive-build-artifacts.yml
     with:
-      artifact-path: ${{ env.ARTIFACT_PATH }}
+      artifact-path: "./dist/artifacts"
     secrets:
       EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
