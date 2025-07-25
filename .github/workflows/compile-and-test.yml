@@ -1,9 +1,10 @@
 name: Build Expo Project
 
 on:
-  pull_request:
+  push:
     branches:
       - main
+      - 'feature/*'
 
 jobs:
   build:
@@ -26,13 +27,8 @@ jobs:
       - name: Install EAS CLI
         run: npm install -g eas-cli
 
-      - name: Build App (Development profile)
-        run: eas build --platform android --non-interactive --profile production
-      
-  call-archive:
-    needs: build
-    uses: ./.github/workflows/archive-build-artifacts.yml
-    with:
-      artifact-path: "./dist/artifacts"
-    secrets:
-      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      - name: Run TypeScript check
+      run: npx tsc --noEmit
+
+      - name: Run Expo bundle check
+      run: npx expo export --platform android --dev --output-dir temp-build
