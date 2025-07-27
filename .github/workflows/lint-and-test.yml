@@ -27,8 +27,11 @@ jobs:
       - name: Install EAS CLI
         run: npm install -g eas-cli
 
+      - name: Run ESLint
+        run: npm run lint
+
       - name: Run TypeScript check
-      run: npx tsc --noEmit
+        run: npx tsc --noEmit
 
       - name: Run Expo bundle check
-      run: npx expo export --platform android --dev --output-dir temp-build
+        run: npx expo export --platform android --dev --output-dir temp-build
