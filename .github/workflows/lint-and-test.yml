@@ -1,4 +1,4 @@
-name: Build Expo Project
+name: Lint and Test
 
 on:
   push:
