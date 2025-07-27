@@ -37,3 +37,9 @@ jobs:
 
       - name: Run Expo bundle check
         run: npx expo export --platform android --dev --output-dir temp-build
+
+      - name: Run Code Coverage Analysis
+        run: npm run coverage
+
+      - name: Run Unit Tests
+        run: npm test
