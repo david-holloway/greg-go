@@ -13,6 +13,7 @@ export default function NameScreen({ navigation }: any) {
         onChangeText={setName}
       />
       <Button
+        testID="Next"
         title="Next"
         onPress={() => navigation.navigate('Photo', { name })}
         disabled={!name}
