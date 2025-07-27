@@ -26,14 +26,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install EAS CLI
-        run: npm install -g eas-cli
-
       - name: Run ESLint
         run: npm run lint
 
       - name: Run TypeScript check
         run: npx tsc --noEmit
 
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
       - name: Run Expo bundle check
         run: npx expo export --platform android --dev --output-dir temp-build
+
+      - name: Run Code Coverage Analysis
+        run: npm run coverage
+
+      - name: Run Unit Tests
+        run: npm test
