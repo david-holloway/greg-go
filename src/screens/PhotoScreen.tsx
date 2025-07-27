@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
 import { View, Text, Button, Image, StyleSheet, Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentUser, addGregUser } from '../redux/gregUser';
 
 export default function PhotoScreen({ route }: any) {
-  const { name } = route.params;
-  const [photo, setPhoto] = useState<string | null>(null);
+  
+  const dispatch = useDispatch();
+
+  const currentUser = useSelector((state: any) => state.gregUsers.currentUser); // Pulls the current user from Redux state
+  const [photo, setPhoto] = useState<string | null>(currentUser?.photoFilePath || null); // Initialize with existing photo if available
+
+  const updatePhoto = (uri: string) => {
+  setPhoto(uri);
+  const updatedUser = { ...currentUser, photoFilePath: uri };
+  dispatch(setCurrentUser(updatedUser));
+};
+
 
   const requestCameraPermission = async () => {
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
@@ -58,7 +70,7 @@ export default function PhotoScreen({ route }: any) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Hi, {name}! Add a photo:</Text>
+      <Text style={styles.title}>Hi, {currentUser?.name}! Add a photo:</Text>
       {photo && <Image source={{ uri: photo }} style={styles.image} />}
       <Button title="Add Photo" onPress={handlePhotoChoice} />
       <Button title="Finish" onPress={() => {/* Save or navigate */}} disabled={!photo} />
