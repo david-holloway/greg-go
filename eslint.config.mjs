@@ -6,7 +6,7 @@ import js from '@eslint/js';
 export default [
   js.configs.recommended,
   {
-    ignores: ['eslint.config.mjs'],
+    ignores: ['eslint.config.mjs','jest.config.js'],
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
